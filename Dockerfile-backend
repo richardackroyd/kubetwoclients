@@ -1,0 +1,4 @@
+FROM ubuntu
+EXPOSE 3001
+COPY helloclient helloclient
+CMD ["/helloclient"]

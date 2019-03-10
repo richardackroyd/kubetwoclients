@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld
+spec:
+  minReadySeconds: 5
+  replicas: 20
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+        - name: application
+          image: helloworld2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            initialDelaySeconds: 1
+            periodSeconds: 1
+            httpGet:
+              path: /health
+              port: 3000

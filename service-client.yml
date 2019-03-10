@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworldclient
+spec:
+  ports:
+  - nodePort: 32001
+    port: 80
+    targetPort: 3001
+  selector:
+    app: helloworldclient
+  type: NodePort

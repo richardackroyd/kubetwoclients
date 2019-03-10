@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helloworldclient
+spec:
+  minReadySeconds: 5
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helloworldclient
+    spec:
+      containers:
+        - name: application
+          image: helloclient
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
